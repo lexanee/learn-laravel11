@@ -89,14 +89,10 @@
     <div x-show="isOpen" class="md:hidden" id="mobile-menu">
         <div class="space-y-1 px-2 pt-2 pb-3 sm:px-3">
             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-            <a href="/home" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white"
-                aria-current="page">Home</a>
-            <a href="/about"
-                class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">About</a>
-            <a href="/blog"
-                class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Blog</a>
-            <a href="/contact"
-                class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Contact</a>
+            <x-nav-link :to="'/'" :text="'Home'" :active="request()->is('/')" />
+            <x-nav-link :to="'about'" :text="'About'" :active="request()->is('about')" />
+            <x-nav-link :to="'blog'" :text="'Blog'" :active="request()->is('blog')" />
+            <x-nav-link :to="'contact'" :text="'Contact'" :active="request()->is('contact')" />
         </div>
         <div class="border-t border-gray-700 pt-4 pb-3">
             <div class="flex items-center px-5">
