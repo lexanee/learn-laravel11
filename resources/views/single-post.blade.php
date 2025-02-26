@@ -3,8 +3,11 @@
     <article class="py-8 max-w-screen-md">
         <h2 class="mb-3 text-3xl font-bold text-gray-900">{{ $article->title }}</h2>
         <div class="text-base text-gray-500">
-            <a href="/authors/{{ $article->author->id }}">{{ $article->author->name }}</a> |
-            {{ $article->created_at->diffForHumans() }}
+            By <a href="/authors/{{ $article->author->username }}"
+                class="hover:underline text-gray-900">{{ $article->author->name }}</a> in
+            <a href="/categories/{{ $article->category->slug }}"
+                class="hover:underline text-gray-900">{{ $article->category->name }}</a>
+            | {{ $article->created_at->diffForHumans() }}
         </div>
         <p class="my-4 font-light">
             {{ $article->content }}
