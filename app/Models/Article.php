@@ -12,6 +12,14 @@ class Article extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'title',
+        'slug',
+        'content',
+    ];
+
+    protected $with = ['author', 'category'];
+
     /**
      * Get the user that owns the Article
      *

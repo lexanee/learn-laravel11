@@ -14,16 +14,18 @@ Route::get('/about', function () {
 });
 
 Route::get('/blog', function () {
-    return view('blog', [
-        'articles' => Article::all()
-    ]);
+    // $articles = Article::with(['author', 'category'])->latest()->get();
+    $articles = Article::latest()->get();
+    return view('blog', ['articles' => $articles]);
 });
 
 Route::get('/authors/{user:username}', function (User $user) {
+    // $articles = $user->articles->load('author', 'category');
     return view('blog', ['articles' => $user->articles]);
 });
 
 Route::get('/categories/{category:slug}', function (Category $category) {
+    // $articles = $category->articles->load('author', 'category');
     return view('blog', ['articles' => $category->articles]);
 });
 
